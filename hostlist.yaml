@@ -1,0 +1,12 @@
+all:
+  hosts:
+  children:
+    hyperv:
+	  hosts:
+	    3.227.229.178
+	citrix:
+	  hosts:
+	    3.239.181.18
+	sql:
+	  hosts:
+	    3.239.103.133
