@@ -11,9 +11,7 @@
     - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
-      APP_LOG_CONTENT_ACCESS: 1
-      INFRA_ONLY: 0
-      HOST_GROUP: SITE1_CITRIX
+      --set-host-group=SITE1_CITRIX
       dynatrace_oneagent_host_metadata: Site=SITE1 TechType=Citrix Owner=abc@example.com
       
   tasks:
@@ -32,9 +30,7 @@
     - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
-      APP_LOG_CONTENT_ACCESS: 1
-      INFRA_ONLY: 0
-      HOST_GROUP: SITE1_HYPERV
+      --set-host-group=SITE1_HYPERV
       dynatrace_oneagent_host_metadata: Site=SITE1 TechType=HyperV Owner=def@example.com
       
   tasks:
@@ -53,9 +49,7 @@
     - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
-      APP_LOG_CONTENT_ACCESS: 1
-      INFRA_ONLY: 1
-      HOST_GROUP: SITE1_HYPERV
+      --set-host-group=SITE1_SQL
       dynatrace_oneagent_host_metadata: Site=SITE1 TechType=SQL Owner=ghi@example.com
 
   tasks:
