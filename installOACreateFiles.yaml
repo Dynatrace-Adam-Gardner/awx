@@ -23,7 +23,7 @@
   #      dest: /tmp/citrix.conf
  
   - name: Create c:/temp
-    ansible.windows.win_file:
+    ansible.builtin.file:
       path: c:\temp
       state: directory
 
