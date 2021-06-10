@@ -8,7 +8,7 @@
   hosts: citrix
   become: true
   roles:
-    - role: Dynatrace.OneAgent
+    - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
       APP_LOG_CONTENT_ACCESS: 1
@@ -29,7 +29,7 @@
   hosts: hyperv
   become: true
   roles:
-    - role: Dynatrace.OneAgent
+    - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
       APP_LOG_CONTENT_ACCESS: 1
@@ -50,7 +50,7 @@
   hosts: sql
   become: true
   roles:
-    - role: Dynatrace.OneAgent
+    - role: dynatrace.oneagent
   vars:
     dynatrace_oneagent_install_args:
       APP_LOG_CONTENT_ACCESS: 1
