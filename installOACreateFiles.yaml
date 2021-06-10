@@ -1,0 +1,63 @@
+---
+########################################
+# Play 1: Configure Citrix Hosts       #
+# Task One: Install OneAgent           #
+# Task Two: Create Citrix config file  #
+########################################
+- name: Install OneAgent on Citrix Hosts
+  hosts: citrix
+  become: true
+  roles:
+    - role: Dynatrace.OneAgent
+  vars:
+    dynatrace_oneagent_install_args:
+      APP_LOG_CONTENT_ACCESS: 1
+      INFRA_ONLY: 0
+      HOST_GROUP: SITE1_CITRIX
+      dynatrace_oneagent_host_metadata: Site=SITE1 TechType=Citrix Owner=abc@example.com
+      
+  tasks:
+     - name: Creating Citrix Config File
+       command: "touch /tmp/citrix_file.conf"
+
+########################################
+# Play 2: Configure HyperV Hosts       #
+# Task One: Install OneAgent           #
+# Task Two: Create HyperV config file  #
+########################################
+- name: Install OneAgent on HyperV Hosts
+  hosts: hyperv
+  become: true
+  roles:
+    - role: Dynatrace.OneAgent
+  vars:
+    dynatrace_oneagent_install_args:
+      APP_LOG_CONTENT_ACCESS: 1
+      INFRA_ONLY: 0
+      HOST_GROUP: SITE1_HYPERV
+      dynatrace_oneagent_host_metadata: Site=SITE1 TechType=HyperV Owner=def@example.com
+      
+  tasks:
+     - name: Creating HyperV Config File
+       command: "touch /tmp/hyperv_file.conf"
+
+########################################
+# Play 3: Configure SQL Hosts          #
+# Task One: Install OneAgent           #
+# Task Two: Create SQL config file     #
+########################################
+- name: Install OneAgent on SQL Hosts
+  hosts: sql
+  become: true
+  roles:
+    - role: Dynatrace.OneAgent
+  vars:
+    dynatrace_oneagent_install_args:
+      APP_LOG_CONTENT_ACCESS: 1
+      INFRA_ONLY: 1
+      HOST_GROUP: SITE1_HYPERV
+      dynatrace_oneagent_host_metadata: Site=SITE1 TechType=SQL Owner=ghi@example.com
+
+  tasks:
+     - name: Creating SQL Config File
+       command: "touch /tmp/sql_file.conf"
