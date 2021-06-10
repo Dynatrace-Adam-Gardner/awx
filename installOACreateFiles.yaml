@@ -14,48 +14,56 @@
     dynatrace_oneagent_host_properties:
       - '--set-host-property=Site=SITE1'
       - '--set-host-property=TechType=Citrix'
-      - '--set-host-property=Owner=abc@example.com'
+      - '--set-host-property=Owner=citrixteam@example.com'
       
   tasks:
-     - name: Creating Citrix Config File
-       ansible.builtin.copy:
-         src: files/citrix/citrix.conf
-         dest: /tmp/citrix.conf
+    - name: Creating Citrix Config File
+      ansible.builtin.copy:
+        src: files/citrix/citrix.conf
+        dest: /tmp/citrix.conf
 
 ########################################
 # Play 2: Configure HyperV Hosts       #
 # Task One: Install OneAgent           #
 # Task Two: Create HyperV config file  #
 ########################################
-#- name: Install OneAgent on HyperV Hosts
-#  hosts: hyperv
-#  become: true
-#  roles:
-#    - role: dynatrace.oneagent
-#  vars:
-#    dynatrace_oneagent_install_args:
-#      --set-host-group=SITE1_HYPERV
-#      dynatrace_oneagent_host_metadata: Site=SITE1 TechType=HyperV Owner=def@example.com
-#      
-#  tasks:
-#     - name: Creating HyperV Config File
-#       command: "touch /tmp/hyperv_file.conf"
-#
+- name: Install OneAgent on HyperV Hosts
+  hosts: hyperv
+  become: true
+  roles:
+    - role: dynatrace.oneagent
+  vars:
+    dynatrace_oneagent_host_group: 'SITE1_HYPERV'
+    dynatrace_oneagent_host_properties:
+      - '--set-host-property=Site=SITE1'
+      - '--set-host-property=TechType=HyperV'
+      - '--set-host-property=Owner=hypervteam@example.com'
+      
+  tasks:
+    - name: Creating HyperV Config File
+      ansible.builtin.copy:
+        src: files/hyperv/hyperv.conf
+        dest: /tmp/hyperv.conf
+
 ########################################
-# Play 3: Configure SQL Hosts          #
+# Play 1: Configure SQL Hosts       #
 # Task One: Install OneAgent           #
-# Task Two: Create SQL config file     #
+# Task Two: Create SQL config file  #
 ########################################
-#- name: Install OneAgent on SQL Hosts
-#  hosts: sql
-#  become: true
-#  roles:
-#    - role: dynatrace.oneagent
-#  vars:
-#    dynatrace_oneagent_install_args:
-#      --set-host-group=SITE1_SQL
-#      dynatrace_oneagent_host_metadata: Site=SITE1 TechType=SQL Owner=ghi@example.com#
-#
-#  tasks:
-#     - name: Creating SQL Config File
-#       command: "touch /tmp/sql_file.conf"
+- name: Install OneAgent on Citrix Hosts
+  hosts: sql
+  become: true
+  roles:
+    - role: dynatrace.oneagent
+  vars:
+    dynatrace_oneagent_host_group: 'SITE1_SQL'
+    dynatrace_oneagent_host_properties:
+      - '--set-host-property=Site=SITE1'
+      - '--set-host-property=TechType=SQL'
+      - '--set-host-property=Owner=sqlteam@example.com'
+
+  tasks:
+    - name: Creating SQL Config File
+      ansible.builtin.copy:
+        src: files/sql/sql.conf
+        dest: /tmp/sql.conf
