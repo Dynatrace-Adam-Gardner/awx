@@ -1,1 +1,2 @@
 - name: dynatrace.oneagent
+  src: https://github.com/Dynatrace-Adam-Gardner/Dynatrace-OneAgent-Ansible
