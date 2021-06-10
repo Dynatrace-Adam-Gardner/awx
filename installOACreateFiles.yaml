@@ -29,7 +29,7 @@
 
   - name: Creating Citrix Config File
     ansible.builtin.copy:
-      src: files\citrix\citrix.conf
+      src: files/citrix/citrix.conf
       dest: c:\temp\citrix.conf
 
 ########################################
