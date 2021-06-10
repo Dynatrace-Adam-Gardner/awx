@@ -1,6 +1,5 @@
 - name: Install OneAgent on Citrix Hosts
   hosts: citrix
-  become: true
   
   tasks:
   - name: Create directory structure
