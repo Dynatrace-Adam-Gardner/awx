@@ -12,7 +12,7 @@
   vars:
     dynatrace_oneagent_install_args: {
       '--set-host-group': 'SITE1_HYPERV',
-      'dynatrace_oneagent_host_metadata': 'Site=SITE1 TechType=Citrix Owner=abc@example.com'
+      '--set-host-property': 'Site=SITE1 TechType=Citrix Owner=abc@example.com'
     }
       
   tasks:
