@@ -14,7 +14,7 @@
     dynatrace_oneagent_host_properties:
       - '--set-host-property=Site=SITE1'
       - '--set-host-property=TechType=Citrix'
-      - '--set-host-property=Owner=abc@example.com'
+      - '--set-host-property=Owner=123@example.com'
       
   tasks:
      - name: Creating Citrix Config File
