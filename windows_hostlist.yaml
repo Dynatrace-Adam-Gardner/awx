@@ -1,14 +1,12 @@
 all:
   hosts:
-  vars:
-    ansible_connection: winrm
   children:
     hyperv:
       hosts:
         3.238.52.50:
     citrix:
       hosts:
-        3.83.36.79:
+        3.92.152.178:
     sql:
       hosts:
         3.235.0.207:
