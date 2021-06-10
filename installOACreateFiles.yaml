@@ -22,14 +22,14 @@
   #      src: files/citrix/citrix.conf
   #      dest: /tmp/citrix.conf
  
- - name: Create c:/temp
-   ansible.windows.win_file:
-     path: c:\temp
+  - name: Create c:/temp
+    ansible.windows.win_file:
+      path: c:\temp
       state: directory
 
   - name: Creating Citrix Config File
     ansible.builtin.copy:
-      src: files/citrix/citrix.conf
+      src: files\citrix\citrix.conf
       dest: c:\temp\citrix.conf
 
 ########################################
