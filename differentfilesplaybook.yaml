@@ -1,0 +1,20 @@
+---
+- name: HyperV: Create a File
+  hosts: hyperv
+  tasks:
+     - name: Leaving a mark on HyperV Hosts
+       command: "touch /tmp/hyperv_text_file_ansible_was_here"
+
+---
+- name: Citrix: Create a File
+  hosts: citrix
+  tasks:
+     - name: Leaving a mark on Citrix Hosts
+       command: "touch /tmp/citrix_text_file_ansible_was_here"
+
+---
+- name: SQL: Create a File
+  hosts: sql
+  tasks:
+     - name: Leaving a mark on SQL Hosts
+       command: "touch /tmp/sql_text_file_ansible_was_here"
