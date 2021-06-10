@@ -14,11 +14,13 @@
     dynatrace_oneagent_host_properties:
       - '--set-host-property=Site=SITE1'
       - '--set-host-property=TechType=Citrix'
-      - '--set-host-property=Owner=123@example.com'
+      - '--set-host-property=Owner=abc@example.com'
       
   tasks:
      - name: Creating Citrix Config File
-       command: "touch /tmp/citrix_file.conf"
+       ansible.builtin.copy:
+         src: files/citrix/citrix.conf
+         dest: /tmp/citrix/citrix.conf
 
 ########################################
 # Play 2: Configure HyperV Hosts       #
