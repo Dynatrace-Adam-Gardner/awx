@@ -10,7 +10,7 @@
   roles:
     - role: dynatrace.oneagent
   vars:
-    dynatrace_oneagent_host_group: 'SITE1_HYPERV'
+    dynatrace_oneagent_host_group: 'SITE1_CITRIX'
     dynatrace_oneagent_host_properties:
       - '--set-host-property=Site=SITE1'
       - '--set-host-property=TechType=Citrix'
