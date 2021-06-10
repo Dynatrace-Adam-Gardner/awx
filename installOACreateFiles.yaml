@@ -10,12 +10,11 @@
   roles:
     - role: dynatrace.oneagent
   vars:
-    dynatrace_oneagent_install_args: {
-      '--set-host-group': 'SITE1_HYPERV',
-      '--set-host-property': 'Site=SITE1',
-      '--set-host-property': 'TechType=Citrix',
-      '--set-host-property': 'Owner=abc@example.com'
-    }
+    dynatrace_oneagent_install_args:
+      - '--set-host-group=SITE1_HYPERV',
+      - '--set-host-property=Site=SITE1',
+      - '--set-host-property=TechType=Citrix',
+      - '--set-host-property=Owner=abc@example.com'
       
   tasks:
      - name: Creating Citrix Config File
