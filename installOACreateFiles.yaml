@@ -4,17 +4,17 @@
 # Task One: Install OneAgent           #
 # Task Two: Create Citrix config file  #
 ########################################
-- name: Install OneAgent on Citrix Hosts
-  hosts: citrix
-  become: true
-  roles:
-    - role: dynatrace.oneagent
-  vars:
-    dynatrace_oneagent_host_group: 'SITE1_CITRIX'
-    dynatrace_oneagent_host_properties:
-      - '--set-host-property=Site=SITE1'
-      - '--set-host-property=TechType=Citrix'
-      - '--set-host-property=Owner=citrixteam@example.com'
+#- name: Install OneAgent on Citrix Hosts
+#  hosts: citrix
+#  become: true
+#  roles:
+#    - role: dynatrace.oneagent
+#  vars:
+#    dynatrace_oneagent_host_group: 'SITE1_CITRIX'
+#    dynatrace_oneagent_host_properties:
+#      - '--set-host-property=Site=SITE1'
+#      - '--set-host-property=TechType=Citrix'
+#      - '--set-host-property=Owner=citrixteam@example.com'
       
   tasks:
   #  - name: Creating Citrix Config File
@@ -22,39 +22,39 @@
   #      src: files/citrix/citrix.conf
   #      dest: /tmp/citrix.conf
 
-  - name: Create directory structure
-    ansible.windows.win_file:
-      path: c:\temp
-      state: directory
+#  - name: Create directory structure
+#    ansible.windows.win_file:
+#      path: c:\temp
+#      state: directory
 
-  - name: Creating Citrix Config File
-    ansible.builtin.copy:
-      src: files/citrix/citrix.conf
-      dest: c:\temp\citrix.conf
+#  - name: Creating Citrix Config File
+#    ansible.builtin.copy:
+#      src: files/citrix/citrix.conf
+#      dest: c:\temp\citrix.conf
 
 ########################################
 # Play 2: Configure HyperV Hosts       #
 # Task One: Install OneAgent           #
 # Task Two: Create HyperV config file  #
 ########################################
-#- name: Install OneAgent on HyperV Hosts
-#  hosts: hyperv
+- name: Install OneAgent on HyperV Hosts
+  hosts: hyperv
 #  become: true
-#  roles:
-#    - role: dynatrace.oneagent
-#  vars:
-#    dynatrace_oneagent_host_group: 'SITE1_HYPERV'
-#    dynatrace_oneagent_host_properties:
-#      - '--set-host-property=Site=SITE1'
-#      - '--set-host-property=TechType=HyperV'
-#      - '--set-host-property=Owner=hypervteam@example.com'
-#      
-#  tasks:
-#    - name: Creating HyperV Config File
-#      ansible.builtin.copy:
-#        src: files/hyperv/hyperv.conf
-#        dest: /tmp/hyperv.conf
-#
+  roles:
+    - role: dynatrace.oneagent
+  vars:
+    dynatrace_oneagent_host_group: 'SITE1_HYPERV'
+    dynatrace_oneagent_host_properties:
+      - '--set-host-property=Site=SITE1'
+      - '--set-host-property=TechType=HyperV'
+      - '--set-host-property=Owner=hypervteam@example.com'
+      
+  tasks:
+    - name: Creating HyperV Config File
+      ansible.builtin.copy:
+        src: files/hyperv/hyperv.conf
+        dest: /tmp/hyperv.conf
+
 ########################################
 # Play 1: Configure SQL Hosts       #
 # Task One: Install OneAgent           #
