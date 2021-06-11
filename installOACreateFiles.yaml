@@ -8,7 +8,7 @@
     dynatrace_oneagent_host_properties:
       - '--set-host-property=Site=SITE1'
       - '--set-host-property=TechType=HyperV'
-      - '--set-host-property=Owner=hypervteam@example.com'
+      - '--set-host-property=Owner=newhypervowner@example.com'
       
   tasks:
     - name: Create directory structure
