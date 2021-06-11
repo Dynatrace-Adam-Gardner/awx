@@ -50,10 +50,15 @@
       - '--set-host-property=Owner=hypervteam@example.com'
       
   tasks:
+    - name: Create directory structure
+      ansible.windows.win_file:
+        path: C:\temp
+        state: directory
+
     - name: Creating HyperV Config File
       ansible.builtin.copy:
         src: files/hyperv/hyperv.conf
-        dest: /tmp/hyperv.conf
+        dest: C:\temp\hyperv.conf
 
 ########################################
 # Play 1: Configure SQL Hosts       #
