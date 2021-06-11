@@ -4,9 +4,3 @@ all:
     hyperv:
       hosts:
         3.238.52.50:
-    citrix:
-      hosts:
-        3.92.152.178:
-    sql:
-      hosts:
-        3.235.0.207:
