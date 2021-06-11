@@ -1,5 +1,5 @@
-- name: Install OneAgent on Citrix Hosts
-  hosts: citrix
+- name: Create a Folder
+  hosts: hyperv
   
   tasks:
   - name: Create directory structure
